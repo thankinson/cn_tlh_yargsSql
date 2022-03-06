@@ -1,8 +1,21 @@
-const Movie = require("./movieTable")
+const {Movie, Cast } = require("./movieTable")
+const { Sequelize } = require("sequelize")
+// Movie.belongsTo(Cast)
+
+exports.addActor = async (filterObj) => {
+    console.log("!!!!!!!!!!!!!!!!!", filterObj)
+    try {
+      return await Cast.create({actor: filterObj});    
+    } catch (error) {
+        console.log(error)
+    }
+};
 
 exports.addMovie = async (movieObj)=>{
     try {
-        await Movie.create(movieObj);
+        // await Cast.create({actor: movieObj.actor});
+        const actor = await Cast.findOne({where: {actor: movieObj.actor}})
+        await Movie.create({title: movieObj.title, actor_id: actor.id});
     } catch (error) {
         console.log(error);
     }
@@ -42,9 +55,3 @@ exports.deleteMovie = async (filterObj) =>{
         console.log(error)
     }
 };
-
-
-
-// module.exports = {
-//  look into this
-// };

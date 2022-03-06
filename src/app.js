@@ -1,12 +1,14 @@
 const yargs = require("yargs");
 const { sequelize } = require("./db/connection");
-const { addMovie, listMovies, deleteMovie, updateMovie } = require("./movie/movieFunction");
+const { addMovie, listMovies, deleteMovie, updateMovie, addActor } = require("./movie/movieFunction");
 const Movie = require("./movie/movieTable");
 
 const app = async (yargsObj) => {
     try {
         await sequelize.sync({alter: true});
-        if (yargsObj.add){ // adds to database
+        if (yargsObj.cast){
+           console.log(JSON.stringify(await addActor(yargsObj.actor), null, 2));
+        } else if (yargsObj.add){ // adds to database
             await addMovie({title: yargsObj.title, actor: yargsObj.actor});
             console.log(JSON.stringify(await listMovies(), null, 2));
         } else if (yargsObj.list){ // read database
