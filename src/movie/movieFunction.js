@@ -1,6 +1,5 @@
 const {Movie, Cast } = require("./movieTable")
 const { Sequelize } = require("sequelize")
-// Movie.belongsTo(Cast)
 
 
         // database funtions.
@@ -17,6 +16,8 @@ const { Sequelize } = require("sequelize")
         //     update movie: --updateDb --param="actor" --filterObj="<what your updating>" --update="<the update>"
         //     delete movie: --remove --title"<movie title>"
 
+
+//  Create
 exports.addActor = async (filterObj) => {
     console.log("!!!!!!!!!!!!!!!!!", filterObj)
     // Add actor to db first then run the add movie
@@ -38,6 +39,7 @@ exports.addMovie = async (movieObj)=>{
     }
 };
 
+// read
 exports.listMovies= async (filterObj) =>{
     try {
         console.log("hit list")
@@ -64,6 +66,7 @@ exports.listActor = async (filterObj) => {
     };
 };
 
+// Update
 exports.updateMovie = async (param, filterObj, update) =>{
     try {
         if (param === "title"){
@@ -78,6 +81,7 @@ exports.updateMovie = async (param, filterObj, update) =>{
     }
 };
 
+// delete
 exports.deleteMovie = async (filterObj) =>{
     try {
         await Movie.destroy({where: filterObj})
