@@ -2,22 +2,20 @@ const {Movie, Cast } = require("./movieTable")
 const { Sequelize } = require("sequelize")
 // Movie.belongsTo(Cast)
 
-exports.movieHelp = async () => {
-    return `
-        database funtions.
-        run app:  node .\\src\\app.js --options="tasks"
-        Options:
-            add actor: --cast --actor="<name here>"
-            add movie: --add --title="<movie title>" --actor"<enter actor created in add actor>"
-            list all cast: --listCast
-            list actor: --list --key="actor" value="<actor name>"
-            list all movies: --list
-            list movie: --list --key="movie" value="<movie name>"
-            update movie: --updateDb --param="title" --filterObj="<what your updating>" --update="<the update>"
-            update movie: --updateDb --param="actor" --filterObj="<what your updating>" --update="<the update>"
-            delete movie: --remove --title"<movie title>"
-    `
-}
+
+        // database funtions.
+        // run app:  node .\\src\\app.js --options="tasks"
+        // Options:
+        //     help menue: --helpMenue
+        //     add actor: --cast --actor="<name here>"
+        //     add movie: --add --title="<movie title>" --actor"<enter actor created in add actor>"
+        //     list all cast: --listCast
+        //     list actor: --list --key="actor" value="<actor name>"
+        //     list all movies: --list
+        //     list movie: --list --key="movie" value="<movie name>"
+        //     update movie: --updateDb --param="title" --filterObj="<what your updating>" --update="<the update>"
+        //     update movie: --updateDb --param="actor" --filterObj="<what your updating>" --update="<the update>"
+        //     delete movie: --remove --title"<movie title>"
 
 exports.addActor = async (filterObj) => {
     console.log("!!!!!!!!!!!!!!!!!", filterObj)
