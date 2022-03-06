@@ -22,7 +22,6 @@ const Movie = sequelize.define("Movie", {
     }
 });
 
-
 const Cast = sequelize.define("Cast", {
     id: {
         type: DataTypes.INTEGER,
@@ -35,18 +34,5 @@ const Cast = sequelize.define("Cast", {
     },
 });
 
-
-
 // Movie.belongsTo(Cast);
-
-// Cast.belongsTo(Movie, { foreignKey: {
-//     name: 'actorid',
-//     type: DataTypes.INTEGER,
-   
-  
-// }});
-
-// Movie.belongsTo(Cast, {foreignKey: 'actorId'});
-// Movie.belongsTo(Cast);
-
 module.exports = { Movie, Cast };
